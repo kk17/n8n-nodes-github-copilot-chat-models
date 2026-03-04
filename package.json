@@ -45,8 +45,8 @@
     ]
   },
   "devDependencies": {
-    "@langchain/core": "^0.3.0",
-    "@langchain/openai": "^0.3.0",
+    "@langchain/core": "^1.1.0",
+    "@langchain/openai": "^1.1.0",
     "@types/node": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^7.0.0",
     "@typescript-eslint/parser": "^7.0.0",
