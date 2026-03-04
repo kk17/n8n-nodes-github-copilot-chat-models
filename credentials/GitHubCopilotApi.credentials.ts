@@ -1,8 +1,7 @@
-import type {
-  ICredentialTestRequest,
-  ICredentialType,
-  INodeProperties,
-} from "n8n-workflow";
+import type { ICredentialType, INodeProperties } from "n8n-workflow";
+
+// VS Code's GitHub Copilot OAuth app client ID (public, used by all Copilot clients)
+export const DEFAULT_CLIENT_ID = "Ov23li8tweQw6odWQebz";
 
 export class GitHubCopilotApi implements ICredentialType {
   name = "gitHubCopilotApi";
@@ -19,11 +18,10 @@ export class GitHubCopilotApi implements ICredentialType {
       type: "string",
       typeOptions: { password: true },
       default: "",
-      required: true,
       description:
-        "GitHub OAuth token (ghu_...) obtained via the Copilot device authorization flow. " +
-        "Personal Access Tokens (PAT) and fine-grained tokens are NOT supported — the Copilot API rejects them with HTTP 400. " +
-        "See the docs for how to obtain a valid token.",
+        "GitHub OAuth token (ghu_...). " +
+        "Leave empty and click 'Test credential' to start the device authorization flow. " +
+        "Personal Access Tokens (PAT) and fine-grained tokens are NOT supported.",
       placeholder: "ghu_xxxxxxxxxxxx",
     },
     {
@@ -37,19 +35,16 @@ export class GitHubCopilotApi implements ICredentialType {
         "Do NOT enter the full URL — just the hostname.",
       placeholder: "company.ghe.com",
     },
-  ];
-
-  test: ICredentialTestRequest = {
-    request: {
-      baseURL:
-        '={{$credentials.enterpriseUrl ? "https://copilot-api." + $credentials.enterpriseUrl : "https://api.githubcopilot.com"}}',
-      url: "/models",
-      method: "GET",
-      headers: {
-        Authorization: '={{"Bearer " + $credentials.token}}',
-        "Copilot-Integration-Id": "vscode-chat",
-        "x-initiator": "user",
-      },
+    {
+      displayName: "OAuth Client ID",
+      name: "clientId",
+      type: "string",
+      default: "",
+      description:
+        "OAuth client ID used for the device authorization flow. " +
+        "Leave empty to use the default VS Code Copilot client ID. " +
+        `Default: ${DEFAULT_CLIENT_ID}`,
+      placeholder: DEFAULT_CLIENT_ID,
     },
-  };
+  ];
 }
