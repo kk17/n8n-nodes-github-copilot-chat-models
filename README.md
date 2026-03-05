@@ -48,6 +48,9 @@ See [docs/CREDENTIALS.md](./docs/CREDENTIALS.md)
 | **Temperature** | Controls response randomness (0–2) | `0.7` |
 | **Maximum Tokens** | Max tokens to generate. `-1` = no limit | `-1` |
 
+## Toubleshooting
+See [docs/TOUBLESHOOTING.md](./docs/TOUBLESHOOTING.md)
+
 ## GitHub Enterprise Support
 
 Set the **Enterprise URL** field in your credential to your GitHub Enterprise domain (without `https://`), for example:
