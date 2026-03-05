@@ -9,7 +9,7 @@ export class GitHubCopilotApi implements ICredentialType {
   displayName = "GitHub Copilot API";
 
   documentationUrl =
-    "https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-in-your-ide";
+    "https://docs.github.com/en/copilot/how-tos";
 
   properties: INodeProperties[] = [
     {
