@@ -2,23 +2,6 @@
 
 Guide for developing and testing the GitHub Copilot Chat Model n8n node locally.
 
-## Prerequisites
-
-- Node.js 18+
-- npm
-- An active GitHub Copilot subscription
-- A GitHub token with Copilot access (PAT or OAuth token)
-
-## Getting Your GitHub Token
-
-1. Go to [GitHub Settings → Developer settings → Personal access tokens → Tokens (classic)](https://github.com/settings/tokens)
-2. Click **Generate new token (classic)**
-3. Give it a name (e.g. `n8n-copilot`)
-4. No specific scopes are required for Copilot API access — just generate it
-5. Copy the token (starts with `ghp_`)
-
-> **Note**: The token must belong to an account with an active GitHub Copilot subscription.
-
 ## Setup
 
 ### 1. Clone and Build
@@ -105,15 +88,7 @@ npm run build
 n8n UI will be at `http://localhost:5678`.
 
 ## Configuring Credentials in n8n
-
-1. Open n8n at `http://localhost:5678`
-2. Go to **Credentials → New Credential**
-3. Search for **GitHub Copilot API**
-4. Fill in:
-   - **GitHub Token**: your token (`ghp_...`)
-   - **Enterprise URL**: leave empty for github.com
-5. Click **Test credential** — you should see a success message
-6. Click **Save**
+See [CREDENTIALS.md](./CREDENTIALS.md)
 
 ## Creating a Test Workflow
 

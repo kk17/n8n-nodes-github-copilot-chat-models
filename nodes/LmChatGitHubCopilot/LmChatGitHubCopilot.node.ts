@@ -84,7 +84,7 @@ async function startDeviceFlow(
       `  ${data.verification_uri}\n\n` +
       `Step 2 — Enter this code when prompted:\n` +
       `  ${data.user_code}\n\n` +
-      `Step 3 — After authorizing, paste the following into the "OAuth Token" field and click "Test credential" again:\n` +
+      `Step 3 — After authorizing, paste the following into the "OAuth Token" field and click "Save" again:\n` +
       `  PENDING:${data.device_code}`,
   };
 }
@@ -135,7 +135,7 @@ async function pollForToken(
         status: "Error",
         message:
           `Authorization failed: ${data.error_description ?? data.error}\n\n` +
-          `Please clear the "OAuth Token" field and click "Test credential" to start over.`,
+          `Please clear the "OAuth Token" field and click "Save" to start over.`,
       };
     }
 
@@ -147,7 +147,7 @@ async function pollForToken(
           `Your GitHub Copilot OAuth token:\n\n` +
           `  ${data.access_token}\n\n` +
           `Copy this token, paste it into the "OAuth Token" field (replacing the "PENDING:..." text), ` +
-          `and click "Test credential" again to validate.`,
+          `and click "Save" again to validate.`,
       };
     }
   }
@@ -159,7 +159,7 @@ async function pollForToken(
       `  1. Opened the verification URL in your browser\n` +
       `  2. Entered the user code\n` +
       `  3. Clicked "Authorize"\n\n` +
-      `Then click "Test credential" again.`,
+      `Then click "Save" again.`,
   };
 }
 
@@ -193,7 +193,7 @@ async function validateToken(
         status: "Error",
         message:
           `Authentication failed (HTTP ${statusCode}). ` +
-          `Ensure the token is a valid OAuth token (ghu_...) from the device authorization flow. ` +
+          `Ensure the token is a valid OAuth token (gho_...) from the device authorization flow. ` +
           `Personal Access Tokens (PATs) are NOT supported.`,
       };
     }
@@ -203,8 +203,8 @@ async function validateToken(
         status: "Error",
         message:
           `HTTP 400: The Copilot API rejected the token. ` +
-          `This usually means the token is a PAT or fine-grained token — only OAuth tokens (ghu_...) are accepted. ` +
-          `Clear the token field and click "Test credential" to start the device authorization flow.`,
+          `This usually means the token is a PAT or fine-grained token — only OAuth tokens (gho_...) are accepted. ` +
+          `Clear the token field and click "Save" to start the device authorization flow.`,
       };
     }
 

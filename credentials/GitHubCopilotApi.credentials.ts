@@ -9,7 +9,7 @@ export class GitHubCopilotApi implements ICredentialType {
   displayName = "GitHub Copilot API";
 
   documentationUrl =
-    "https://docs.github.com/en/copilot/how-tos";
+    "https://github.com/kk17/n8n-nodes-github-copilot-chat-models/blob/main/docs/CREDENTIALS.md";
 
   properties: INodeProperties[] = [
     {
@@ -19,10 +19,10 @@ export class GitHubCopilotApi implements ICredentialType {
       typeOptions: { password: true },
       default: "",
       description:
-        "GitHub OAuth token (ghu_...). " +
-        "Leave empty and click 'Test credential' to start the device authorization flow. " +
+        "GitHub OAuth token (gho_...). " +
+        "Leave empty and click 'Save' to start the device authorization flow. " +
         "Personal Access Tokens (PAT) and fine-grained tokens are NOT supported.",
-      placeholder: "ghu_xxxxxxxxxxxx",
+      placeholder: "gho_xxxxxxxxxxxx",
     },
     {
       displayName: "Enterprise Server Domain",
